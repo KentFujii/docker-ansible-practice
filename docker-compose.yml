@@ -9,7 +9,7 @@ services:
     container_name: ansible-centos7
     hostname: centos7
     privileged: true
-    volumes: 
+    volumes:
       - ./ssh/ansible_rsa.pub:/root/.ssh/authorized_keys
   # node 2
   ubuntu16:
@@ -20,14 +20,14 @@ services:
     container_name: ansible-ubuntu16
     hostname: ubuntu16
     privileged: true
-    volumes: 
+    volumes:
       - ./ssh/ansible_rsa.pub:/root/.ssh/authorized_keys
   # ansible実行環境
-  myansible:
+  ansible:
     build:
       context: .
       dockerfile: Dockerfile
-    image: myansible
+    image: ansible
     container_name: myansible
     hostname: myansible
     links:
